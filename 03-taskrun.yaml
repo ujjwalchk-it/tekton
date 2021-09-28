@@ -1,12 +1,12 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: testrun
+  name: ujjwal-tekton-tasktestrun
 spec:
   taskRef:
-    name: ujjwal-tekton-test
+    name: ujjwal-tekton-testtask
   resources:
     inputs:
       - name: repo
         resourceRef:
-          name: ujjwal-tekton-taskrunresource
+          name: ujjwal-tekton-gitresource

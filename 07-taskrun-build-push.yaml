@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: ujjwal-tekton-taskbuildpushrun
+spec:
+  serviceAccountName: dockerhub-sa
+  taskRef:
+    name: ujjwal-tekton-buildpushtask
+  resources:
+    inputs:
+      - name: repo
+        resourceRef:
+          name: ujjwal-tekton-gitresource

@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: ujjwal-tekton-test
+  name: ujjwal-tekton-testtask
 spec:
   resources:
     inputs:

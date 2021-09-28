@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: ujjwal-tekton-testbuildpushpr
+spec:
+  serviceAccountName: dockerhub-sa
+  pipelineRef:
+    name: ujjwal-tekton-pipelinetestbuildpush
+  resources:
+  - name: repo
+    resourceRef:
+      name: ujjwal-tekton-gitresource

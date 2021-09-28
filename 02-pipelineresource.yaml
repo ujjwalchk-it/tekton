@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: ujjwal-tekton-taskrunresource
+  name: ujjwal-tekton-gitresource
 spec:
   type: git
   params:

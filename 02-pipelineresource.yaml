@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: ujjwal-tekton-taskrunresource
+spec:
+  type: git
+  params:
+    - name: url
+      value: https://github.com/ujjwalchk-it/tekton
+    - name: revision
+      value: master

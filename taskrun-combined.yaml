@@ -1,0 +1,40 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: ujjwal-tekton-test
+spec:
+  resources:
+    inputs:
+      - name: repo
+        type: git
+  steps:
+    - name: run-test
+      image: golang:1.16-alpine
+      workingDir: /workspace/repo/src
+      command: ["go"]
+      args: ["test"]
+---
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: ujjwal-tekton-taskrunresource
+spec:
+  type: git
+  params:
+    - name: url
+      value: https://github.com/ujjwalchk-it/tekton
+    - name: revision
+      value: master
+---
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: testrun
+spec:
+  taskRef:
+    name: ujjwal-tekton-test
+  resources:
+    inputs:
+      - name: repo
+        resourceRef:
+          name: ujjwal-tekton-taskrunresource
